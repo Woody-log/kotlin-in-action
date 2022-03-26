@@ -22,6 +22,16 @@ fun main(args: Array<String>) {
     // var은 재할당 가능, 타입은 고정
     var name2: String = "Dexter"
 
+    /**
+     * 문자열 템플릿
+     */
+    var name = "ok"
+    println("Hello, $name!")    // 뒤에 변수 사용
+    println("Hello, ${name}입니다.")   // $ 뒤에 중괄호 사용
+    println("\$name의 값 = $name")    // $ 자체는 \$ 탈출문자 사용
+    println("max(1, 2) = ${max(1, 2)}") // 중괄호 안에서 식 사용
+    println("args: ${if (args.isEmpty()) "empty" else args[0]}") // 식에서 큰 따옴표 사용
+
 }
 
 class Main {
