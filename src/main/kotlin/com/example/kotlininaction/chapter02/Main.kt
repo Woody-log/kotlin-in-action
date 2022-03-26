@@ -59,7 +59,56 @@ fun main(args: Array<String>) {
             get() = height * width
     }
 
+    /**
+     * enum
+     */
+    // 자바의 switch와 유사, when은 식
+    fun getWarmth(color: Color) =
+            when (color) {
+                Color.RED -> "warm"
+                Color.ORANGE -> "warm"
+                Color.YELLOW -> "warm"
+                Color.BLUE -> "cold"
+                Color.VIOLET -> "cold"
+                Color.GREEN -> "warm"
+            }
+
+    // 2. 여러 매치 패턴을 지정할 수 있음
+    fun getWarmth2(color: Color) =
+            when (color) {
+                Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN -> "warm"
+                Color.BLUE, Color.VIOLET -> "cold"
+            }
+
+    // 3. 모든 분기 식에 만족하지 않으면 else 
+    fun getWarmth3(color: Color) =
+            when (color) {
+                Color.RED -> "very warm"
+                Color.ORANGE, Color.YELLOW -> "warm"
+                else -> "cold"
+            }
+
+    // 4. when 식은 동등성
+    fun mix(c1: Color, c2: Color) =
+            when (setOf(c1, c2)) {
+                setOf(Color.RED, Color.YELLOW) -> Color.ORANGE
+                setOf(Color.YELLOW, Color.BLUE) -> Color.GREEN
+                else -> throw Exception("Drity color")
+            }
+
+    // 5. When에 인자가 없으려면, 각 분기의 조건에 불리언 결과를 계산하는 식이어야함.
+    fun mimOpt(c1: Color, c2: Color) =
+            when {
+                c1 == Color.RED && c2 == Color.YELLOW -> Color.ORANGE
+                c1 == Color.YELLOW && c2 == Color.RED -> Color.ORANGE
+                c1 == Color.YELLOW && c2 == Color.BLUE -> Color.GREEN
+                else -> throw Exception("Drity color")
+            }
 }
+
+
+interface Expr
+
 
 class Main {
 
