@@ -32,6 +32,33 @@ fun main(args: Array<String>) {
     println("max(1, 2) = ${max(1, 2)}") // 중괄호 안에서 식 사용
     println("args: ${if (args.isEmpty()) "empty" else args[0]}") // 식에서 큰 따옴표 사용
 
+    /**
+     * 클래스
+     */
+    class Person(
+            // val은 읽기 전용으로 비공개 필드와 getter 제공
+            val name: String,
+            // var은 변경 가능하므로 비공개 필드와 getter, setter 제공
+            var isMarried: Boolean
+    )
+
+    var p = Person("yuncheol", false)
+    println(p.name)
+    println(p.isMarried)
+    p.isMarried = true;
+
+    /**
+     * 커스텀 접근자
+     */
+    class Rectangle(val height: Int, val width: Int) {
+        val isSquare: Boolean
+            get() {
+                return height == width
+            }
+        val size: Int
+            get() = height * width
+    }
+
 }
 
 class Main {
