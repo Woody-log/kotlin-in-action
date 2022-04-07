@@ -104,11 +104,36 @@ fun main(args: Array<String>) {
                 c1 == Color.YELLOW && c2 == Color.BLUE -> Color.GREEN
                 else -> throw Exception("Drity color")
             }
+
+    /**
+     * 스마트 케스팅
+     */
+    class Num(var value: Int) : Expr
+    class Sum(val left: Expr, val right: Expr) : Expr
+
+    // 스마트 캐스팅을 지원한다.
+    fun eval(e: Expr): Int =
+            when (e) {
+                is Num -> e.value
+                is Sum -> eval(e.left) + eval(e.right)
+                else -> throw java.lang.IllegalArgumentException()
+            }
+
+    val eval = eval(Sum(Num(1), Num(2)))
+    println(eval)
+
+    val sum = Sum(Num(1), Num(2))
+
+    if (sum.left is Num) {
+        println(sum.left.value)
+    }
+
+    if (sum.right is Num) {
+        println(sum)
+    }
 }
 
-
 interface Expr
-
 
 class Main {
 
