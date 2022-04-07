@@ -4,7 +4,7 @@ import com.example.kotlininaction.chapter03.strings.lastChar
 
 fun main() {
     val list = listOf<Int>(1, 2, 3)
-    val joinToString = joinToString(list, ", ", "!", "!")
+    val joinToString = list.joinToString(", ", "!", "!")
     println("list = ${list}")
 
     var c = "Kotlin".lastChar()
