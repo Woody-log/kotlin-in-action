@@ -1,6 +1,6 @@
 package com.example.kotlininaction.chapter03
 
-fun <T> Collection<T>.joinToString(
+fun Collection<String>.joinToString(
         separator: String = ", ",
         prefix: String = "[",
         postfix: String = "]"
