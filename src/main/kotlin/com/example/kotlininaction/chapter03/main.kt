@@ -9,5 +9,4 @@ fun main() {
 
     var c = "Kotlin".lastChar()
     println("c = ${c}")
-
 }
